@@ -1,5 +1,8 @@
 import React from 'react';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import Inicio from './componentes/Inicio';
+import Blog from './componentes/Blog';
+import AcercaDe from './componentes/AcercaDe';
 
 const App = () => {
   return (
@@ -14,22 +17,17 @@ const App = () => {
       </nav>
       </header>
       <main>
-        <div>
-          <h2>Blog</h2>
-          <p>Esta es la pagina principal de nuestro sitio</p>
-        </div>
-        <div>
-          <h2>Pagina de Inicio</h2>
-          <ul>
-            <li>Articulo #1</li>
-            <li>Articulo #2</li>
-            <li>Articulo #3</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Acerca de</h2>
-          <p>Hola me llamo Carlos</p>
-        </div>
+        <Routes>
+        <Route path="/" element={
+          <Inicio />
+        }/>
+        <Route path="/blog" element={
+          <Blog />
+        }/>
+        <Route path="/acerca-de" element={
+          <AcercaDe />
+        }/>
+        </Routes>
       </main>
     </div>
     </BrowserRouter>
